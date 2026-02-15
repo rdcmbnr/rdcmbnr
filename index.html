@@ -1748,12 +1748,47 @@ nav a:hover {
 }
 	/* Desktop view */
 /* Desktop view */
+/* Desktop layout */
 @media (min-width: 993px) {
-    .nav-list {
+
+    .navbar {
         display: flex;
-        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
     }
 
+    .nav-list {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .nav-list li {
+        list-style: none;
+    }
+
+    .nav-list li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 5px;
+        font-weight: 500;
+    }
+
+    /* Remove dropdown absolute positioning in desktop */
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #1f4e8c;
+        display: none;
+        min-width: 200px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Hide hamburger in desktop */
     .menu-toggle {
         display: none;
     }
@@ -3919,6 +3954,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
