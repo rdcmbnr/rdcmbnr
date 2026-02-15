@@ -86,12 +86,24 @@ nav a:hover {
     background: #0b5ed7;
 }
 
-	.navbar {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #1f4e8c;
     padding: 10px 20px;
+    position: relative;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu-toggle {
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    display: none;
 }
 
 .nav-list {
@@ -106,13 +118,6 @@ nav a:hover {
     font-size: 14px;
 }
 
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-}
-
 /* MOBILE VIEW */
 @media (max-width: 992px) {
 
@@ -122,21 +127,27 @@ nav a:hover {
 
     .nav-list {
         position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
+        top: 40px;
+        right: 0;
         background: #1f4e8c;
         flex-direction: column;
-        align-items: center;
+        width: 220px;
         display: none;
-        padding: 15px 0;
+        padding: 10px 0;
+        border-radius: 5px;
     }
 
-    .nav-list.active {
+    .nav-list li {
+        padding: 10px 20px;
+        text-align: left;
+    }
+
+    /* 👇 SHOW MENU ON HOVER */
+    .menu-container:hover .nav-list {
         display: flex;
     }
-
 }
+
 
 /* ================= CONTENT ================= */
 .container {
@@ -1856,10 +1867,11 @@ function showAdmissionNotification() {
 </header>
 
 <!-- MENU -->
-<nav class="menu-toggle" id="mobile-menu">
- <div class="menu-toggle" id="mobile-menu">
-            ☰
-        </div>
+<nav class="navbar">
+    <div class="logo">TGSWRDCW</div>
+
+    <div class="menu-container">
+        <div class="menu-toggle">☰</div>
     <a onclick="showSection('home')">Home</a>
     <a onclick="showSection('about')">About</a>
 	  
@@ -3855,4 +3867,5 @@ showSection('home');
 
 </body>
 </html>
+
 
