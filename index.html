@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>TGSWRDCW Mahabubnagar</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: #f4f6f8;
+	
 }
 
 /* ================= HEADER ================= */
@@ -633,7 +634,7 @@ nav a:hover {
 }
 
 .gallery-container {
-    max-width: 1200px;
+   width: 90%;
     margin: auto;
 }
 
@@ -1638,6 +1639,47 @@ nav a:hover {
     padding: 10px;
     font-weight: bold;
 }
+@media (max-width: 768px) {
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .classroom-content,
+    .library-content,
+    .lab-content {
+        flex-direction: column;
+    }
+
+    .section-title {
+        font-size: 20px;
+        text-align: center;
+    }
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+   body {
+    width: 100%;
+    max-width: 100%;
+}
+
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+    overflow-x: hidden;
+}
 
 </style>
 <script>
@@ -1762,6 +1804,7 @@ function showAdmissionNotification() {
 
 <!-- MENU -->
 <nav>
+
     <a onclick="showSection('home')">Home</a>
     <a onclick="showSection('about')">About</a>
 	  
