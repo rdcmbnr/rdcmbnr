@@ -107,6 +107,7 @@ nav a:hover {
     list-style: none;
     padding: 0;
     margin: 0;
+	
 }
 
 .nav-list > li {
@@ -1703,6 +1704,17 @@ nav a:hover {
     text-align: center;
     padding: 10px;
     font-weight: bold;
+}
+	/* Desktop view */
+@media (min-width: 993px) {
+    .nav-list {
+        display: flex;
+        gap: 20px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
 }
 @media (max-width: 768px) {
 
@@ -3864,6 +3876,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
