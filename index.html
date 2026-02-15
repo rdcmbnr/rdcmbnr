@@ -95,55 +95,46 @@ nav a:hover {
     position: relative;
 }
 
+
+/* Menu container */
 .menu-container {
     position: relative;
 }
 
-.menu-toggle {
-    font-size: 26px;
-    color: white;
-    cursor: pointer;
-    display: none;
-}
-
-.nav-list {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-
-.nav-list li a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/* MOBILE VIEW */
+/* Mobile View */
 @media (max-width: 992px) {
+
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 45px;
+        right: 0;
+        width: 220px;
+        background: #1f4e8c;
+        flex-direction: column;
+        padding: 10px 0;
+        border-radius: 6px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+
+    .nav-list li {
+        padding: 10px 20px;
+    }
+
+    .nav-list li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
 
     .menu-toggle {
         display: block;
     }
 
-    .nav-list {
-        position: absolute;
-        top: 40px;
-        right: 0;
-        background: #1f4e8c;
-        flex-direction: column;
-        width: 220px;
-        display: none;
-        padding: 10px 0;
-        border-radius: 5px;
-    }
-
-    .nav-list li {
-        padding: 10px 20px;
-        text-align: left;
-    }
-
-    /* 👇 SHOW MENU ON HOVER */
-    .menu-container:hover .nav-list {
+    /* ✅ Show ONLY when hovering hamburger */
+    .menu-toggle:hover + .nav-list,
+    .nav-list:hover {
         display: flex;
     }
 }
@@ -3867,5 +3858,6 @@ showSection('home');
 
 </body>
 </html>
+
 
 
