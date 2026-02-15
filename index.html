@@ -2249,7 +2249,11 @@ function showSection(section) {
 </section>
         `;
 
-        startSlider();
+     document.addEventListener("DOMContentLoaded", function () {
+    showSection('home');
+    startSlider();
+});
+
     }
 /*else if (section === "StudentAmenities") {
     content.innerHTML = `
@@ -3970,6 +3974,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
