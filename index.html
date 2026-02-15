@@ -103,31 +103,42 @@ nav a:hover {
 
 /* Mobile View */
 @media (max-width: 992px) {
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-    .nav-list {
-        display: none;
-        position: absolute;
-        top: 45px;
-        right: 0;
-        width: 220px;
-        background: #1f4e8c;
-        flex-direction: column;
-        padding: 10px 0;
-        border-radius: 6px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        z-index: 1000;
-    }
+.nav-list > li {
+    position: relative;
+}
 
-    .nav-list li {
-        padding: 10px 20px;
-    }
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
 
-    .nav-list li a {
-        color: white;
-        text-decoration: none;
-        display: block;
-    }
+/* Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: #1f4e8c;
+    list-style: none;
+    min-width: 200px;
+}
 
+.dropdown-content li a {
+    padding: 8px 15px;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+  
     .menu-toggle {
         display: block;
     }
@@ -1864,83 +1875,76 @@ function showAdmissionNotification() {
     <div class="menu-container">
         <div class="menu-toggle">☰</div>
 		   <ul class="nav-list">
-    <a onclick="showSection('home')">Home</a>
-    <a onclick="showSection('about')">About</a>
-	  
-<div class="dropdown">
+
+<li><a onclick="showSection('home')">Home</a></li>
+<li><a onclick="showSection('about')">About</a></li>
+
+<li class="dropdown">
     <a href="#">Administration</a>
- 
-	<div class="dropdown-content">
-            <a onclick="showSection('Principal')"><b>Principal</b></a>
-            <a onclick="showSection('Vice Principal')"><b>Vice Principal</b></a>
-			<a onclick="showSection('Teaching Faculty')"><b>Teaching Faculty</b></a>
-			<!--<a onclick="showSection('Non Teaching Staff')"><b>Non Teaching Staff</b></a>-->
-</b></a>
+    <ul class="dropdown-content">
+        <li><a onclick="showSection('Principal')">Principal</a></li>
+        <li><a onclick="showSection('Vice Principal')">Vice Principal</a></li>
+        <li><a onclick="showSection('Teaching Faculty')">Teaching Faculty</a></li>
+    </ul>
+</li>
 
-        </div>
-</div>
- <div class="dropdown">
+<li class="dropdown">
     <a href="#">Infrastructure</a>
- 
-	<div class="dropdown-content">
-            <a onclick="showSection('StudentAmenities')"><b>Student Amenities</b></a>
-            <a onclick="showSection('Classrooms')"><b>Classrooms</b></a>
-			<a onclick="showSection('Laboratories')"><b>Laboratories</b></a>
-						<a onclick="showSection('ICT Classes')"><b>ICT Classes</b></a>
-						<a onclick="showSection('Library')"><b>Library</b></a>
-						<a onclick="showSection('Mess')"><b>Mess/Dining Hall</b></a>
+    <ul class="dropdown-content">
+        <li><a onclick="showSection('StudentAmenities')">Student Amenities</a></li>
+        <li><a onclick="showSection('Classrooms')">Classrooms</a></li>
+        <li><a onclick="showSection('Laboratories')">Laboratories</a></li>
+        <li><a onclick="showSection('ICT Classes')">ICT Classes</a></li>
+        <li><a onclick="showSection('Library')">Library</a></li>
+        <li><a onclick="showSection('Mess')">Mess/Dining Hall</a></li>
+    </ul>
+</li>
 
-        </div>
-</div>
-    <a onclick="showSection('courses')">Courses</a>
+<li><a onclick="showSection('courses')">Courses</a></li>
 
-    <div class="dropdown">
-        <a>Achievements</a>
-        <div class="dropdown-content">
-		<a onclick="showSection('Results')"><b>Results</b></a>
-            <a onclick="showSection('studentAchievements')"><b>Student Achievements</b></a>
-            <a onclick="showSection('facultyAchievements')"><b>Faculty Achievements</b></a>
-        </div>
-    </div>
-	<div class="dropdown">
+<li class="dropdown">
+    <a>Achievements</a>
+    <ul class="dropdown-content">
+        <li><a onclick="showSection('Results')">Results</a></li>
+        <li><a onclick="showSection('studentAchievements')">Student Achievements</a></li>
+        <li><a onclick="showSection('facultyAchievements')">Faculty Achievements</a></li>
+    </ul>
+</li>
+
+<li class="dropdown">
     <a>Placements</a>
-    <div class="dropdown-content">
-        		<a onclick="showSection('Placement Overview')"><b>Placement Overview</b></a>
-           
-			 <a onclick="showSection('Placement Records')"><b>Placement Records</b></a>
-    </div>
-</div>
+    <ul class="dropdown-content">
+        <li><a onclick="showSection('Placement Overview')">Placement Overview</a></li>
+        <li><a onclick="showSection('Placement Records')">Placement Records</a></li>
+    </ul>
+</li>
 
-	<a onclick="showSection('sports')">Sports</a>
-	    <div class="dropdown">
-        <a>Special Programs</a>
-        <div class="dropdown-content">
-            
-    <a onclick="showSection('NSS')">NSS</a> 
-	        <a onclick="showSection('CareerGuidance')">Career Guidance & Placement</a>
- <a onclick="showSection('TASK')">TASK</a>
-  <a onclick="showSection('Kalpana')">Kalpana</a>
-    <a onclick="showSection('Girl Boss')">Girl Boss</a>
-	   <!-- <a onclick="showSection('CareerGuidance')">Magic Bus</a>
-        <a onclick="showSection('SwachhGurukul')">Swachh Gurukul</a> 
-        <a onclick="showSection('AzadiAmritMahotsav')">Azadi Ka Amrit Mahotsav</a> 
-        <a onclick="showSection('TelanganaDashabdi')">Telangana Dashabdi Utsavalu</a> 
-        <a onclick="showSection('Samaikyatha')">Telangana Jatheeya Samaikyatha Vajrostavalu</a> -->
-</div>
-</div>
-	<div class="dropdown">
-        <a>IQAC</a>
-        <div class="dropdown-content">
-		    <a onclick="showSection('AboutIQAC')"><b>About IQAC</b></a>
-            <a onclick="showSection('IQAC Objectives')"><b>Objectives & Functions</b></a>
-        </div>
-    </div>
+<li><a onclick="showSection('sports')">Sports</a></li>
 
-    
-	 <a onclick="showSection('gallery')">Gallery</a>
+<li class="dropdown">
+    <a>Special Programs</a>
+    <ul class="dropdown-content">
+        <li><a onclick="showSection('NSS')">NSS</a></li>
+        <li><a onclick="showSection('CareerGuidance')">Career Guidance</a></li>
+        <li><a onclick="showSection('TASK')">TASK</a></li>
+        <li><a onclick="showSection('Kalpana')">Kalpana</a></li>
+        <li><a onclick="showSection('Girl Boss')">Girl Boss</a></li>
+    </ul>
+</li>
 
-    <a onclick="showSection('contact')">Contact Us</a>
-		   </ul>
+<li class="dropdown">
+    <a>IQAC</a>
+    <ul class="dropdown-content">
+        <li><a onclick="showSection('AboutIQAC')">About IQAC</a></li>
+        <li><a onclick="showSection('IQAC Objectives')">Objectives & Functions</a></li>
+    </ul>
+</li>
+
+<li><a onclick="showSection('gallery')">Gallery</a></li>
+<li><a onclick="showSection('contact')">Contact Us</a></li>
+
+</ul>
+
 </nav>
 <div class="scroll-text">
     <span onclick="showAdmissionNotification()">
@@ -3860,6 +3864,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
