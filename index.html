@@ -224,7 +224,7 @@ h2 {
 }
 
 /* ================= SLIDER ================= */
-/* ================= SLIDER ================= */
+
 .slider {
     position: relative;
     width: 100%;
@@ -2135,11 +2135,11 @@ function showSection(section) {
                 <img src="rep.jpeg">
                 <div class="caption">Padmavathi Participated in Republic Day Parade </div>
             </div>
-			<div class="slide active">
+			<div class="slide">
                 <img src="home.jpeg">
                 <div class="caption">Quiz First prize at BRR college</div>
             </div>
-				<div class="slide active">
+				<div class="slide">
                 <img src="images/yoga.png">
                 <div class="caption">Yoga</div>
             </div>
@@ -3961,16 +3961,16 @@ else {
 }
 
 /* AUTO SLIDER */
-let slideIndex = 0;
+	
+	let slides = document.querySelectorAll(".slide");
+let current = 0;
+
 function startSlider() {
-    const slides = document.querySelectorAll(".slide");
-    if (!slides.length) return;
-
-    slides.forEach(slide => slide.classList.remove("active"));
-    slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add("active");
-
-    setTimeout(startSlider, 1000);
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+}
+    setInterval(startSlider, 1000);
 }
 
 showSection('home');
@@ -3979,6 +3979,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
