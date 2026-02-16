@@ -3956,8 +3956,31 @@ else {
 }
 
 }
+document.addEventListener("DOMContentLoaded", function () {
 
-/* AUTO SLIDER */
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    if (!slides.length) return;
+
+    function startSlider(index) {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[index].classList.add("active");
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        if (slideIndex >= slides.length) {
+            slideIndex = 0;
+        }
+        startSlider(slideIndex);
+    }
+
+    // Start automatic slider
+    setInterval(nextSlide, 3000);
+
+});
+/* AUTO SLIDER 
 let slideIndex = 0;
 let sliderInterval;
 
@@ -3978,12 +4001,13 @@ function startSlider() {
 }
 
 
-showSection('home');
+showSection('home');*/
 
 </script>
 
 </body>
 </html>
+
 
 
 
