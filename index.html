@@ -3964,24 +3964,31 @@ function startSlider() {
 
     setTimeout(startSlider, 2000);
 }*/
-document.addEventListener("DOMContentLoaded", function () {
-    const slides = document.querySelectorAll(".slide");
-    let current = 0;
+let slideIndex = 0;
 
-    function startSlider() {
-        slides[current].classList.remove("active");
-        current = (current + 1) % slides.length;
-        slides[current].classList.add("active");
+function showSlides() {
+    const slides = document.querySelectorAll(".slide");
+
+    slides.forEach(slide => slide.classList.remove("active"));
+
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
     }
 
-    setInterval(startSlider, 3000); // Change every 3 seconds
-});
+    slides[slideIndex - 1].classList.add("active");
+
+    setTimeout(showSlides, 3000);
+}
+
+document.addEventListener("DOMContentLoaded", showSlides);
 showSection('home');
 
 </script>
 
 </body>
 </html>
+
 
 
 
