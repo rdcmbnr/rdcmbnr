@@ -3958,24 +3958,54 @@ else {
 }
 
 /* AUTO SLIDER */
-let slideIndex = 0;
-function startSlider() {
+document.addEventListener("DOMContentLoaded", function () {
+
     const slides = document.querySelectorAll(".slide");
-    if (!slides.length) return;
+    const nextBtn = document.querySelector(".right");
+    const prevBtn = document.querySelector(".left");
 
-    slides.forEach(slide => slide.classList.remove("active"));
-    slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].classList.add("active");
+    let current = 0;
+    let autoSlide;
 
-    setTimeout(startSlider, 2000);
-}
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[index].classList.add("active");
+    }
 
-showSection('home');
+    function nextSlide() {
+        current++;
+        if (current >= slides.length) {
+            current = 0;
+        }
+        showSlide(current);
+    }
+
+    function prevSlide() {
+        current--;
+        if (current < 0) {
+            current = slides.length - 1;
+        }
+        showSlide(current);
+    }
+
+    // Arrow events
+    if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+    if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+
+    // Auto sliding
+    function startAutoSlide() {
+        autoSlide = setInterval(nextSlide, 3000);
+    }
+
+    startAutoSlide();
+
+});
 
 </script>
 
 </body>
 </html>
+
 
 
 
