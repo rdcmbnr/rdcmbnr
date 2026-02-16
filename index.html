@@ -2068,10 +2068,16 @@ function showAdmissionNotification() {
 </footer>
 
 <script>
+const myBtn = document.getElementById("mobile-menu");
 
-document.getElementById("mobile-menu").addEventListener("click", function() {
+if (myBtn) {
+    myBtn.addEventListener("click", function() {
+  document.querySelector(".nav-list").classList.toggle("active");
+    });
+}
+/*document.getElementById("mobile-menu").addEventListener("click", function() {
     document.querySelector(".nav-list").classList.toggle("active");
-});
+});*/
 
 function showSection(section) {
     const content = document.getElementById("content");
@@ -3986,6 +3992,7 @@ function startSlider() {
 
 </body>
 </html>
+
 
 
 
