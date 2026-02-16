@@ -1850,69 +1850,6 @@ img {
 html, body {
     overflow-x: hidden;
 }
-/* COLLEGE AUTOSLIDER - HOME SECTION ONLY */
-.home-section {
-    padding: 40px 20px;
-    position: relative;
-}
-
-.college-slider {
-    width: 100%;
-    max-width: 900px;
-    height: 350px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.slide-track {
-    display: flex;
-    animation: scroll 28s linear infinite;
-    width: max-content;
-}
-
-.college-slider:hover .slide-track {
-    animation-play-state: paused;
-}
-
-.slide {
-    min-width: 25%;
-    height: 350px;
-    position: relative;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slide-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.85);
-    color: white;
-    padding: 20px 15px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-}
-
-/* AUTO SCROLL ANIMATION */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-25% * 4)); }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .college-slider, .slide { height: 250px; }
-    .slide-caption { font-size: 16px; padding: 15px 10px; }
-}
 
 </style>
 <script>
@@ -2177,49 +2114,34 @@ function showSection(section) {
     </div>
 
     
- <section id="home" class="home-section">
-    <div class="college-slider">
-        <div class="slide-track">
-            <!-- Image 1 -->
-            <div class="slide">
-                <img src="i1.png" alt="Campus">
-                <div class="slide-caption">College Campus View</div>
+ <div class="slider">
+            <div class="slide active">
+                <img src="i1.png">
+                <div class="caption">College Campus View</div>
             </div>
-            <!-- Image 2 -->
-            <div class="slide">
-                <img src="h4.jpeg" alt="Gold Medal">
-                <div class="slide-caption">P. Himabindu Gold Medal</div>
+			 <div class="slide">
+                <img src="h4.jpeg">
+                <div class="caption">P. Himabindu Receiving Gold Medal</div>
             </div>
-            <!-- Image 3 -->
+         
             <div class="slide">
-                <img src="h6.jpeg" alt="Shooting">
-                <div class="slide-caption">Shooting Ball Nationals</div>
+                <img src="h6.jpeg">
+                <div class="caption">Gold Medal at Shooting Ball Nationals </div>
             </div>
-            <!-- Image 4 -->
-            <div class="slide">
-                <img src="rep.jpeg" alt="Republic Day">
-                <div class="slide-caption">Republic Day Parade</div>
+             <div class="slide">
+                <img src="rep.jpeg">
+                <div class="caption">Padmavathi Participated in Republic Day Parade </div>
             </div>
-            <!-- DUPLICATE for seamless loop -->
-            <div class="slide">
-                <img src="i1.png" alt="Campus">
-                <div class="slide-caption">College Campus View</div>
+			<div class="slide">
+                <img src="home.jpeg">
+                <div class="caption">Quiz First prize at BRR college</div>
             </div>
-            <div class="slide">
-                <img src="h4.jpeg" alt="Gold Medal">
-                <div class="slide-caption">P. Himabindu Gold Medal</div>
+				<div class="slide">
+                <img src="images/yoga.png">
+                <div class="caption">Yoga</div>
             </div>
-            <div class="slide">
-                <img src="h6.jpeg" alt="Shooting">
-                <div class="slide-caption">Shooting Ball Nationals</div>
-            </div>
-            <div class="slide">
-                <img src="rep.jpeg" alt="Republic Day">
-                <div class="slide-caption">Republic Day Parade</div>
             </div>
         </div>
-    </div>
-</section>
 
         <!--<h2>TGSWRDC MBNR at a Glance</h2>
         <div class="video-section">
@@ -4036,55 +3958,24 @@ else {
 }
 
 /* AUTO SLIDER */
-document.addEventListener("DOMContentLoaded", function () {
-
+let slideIndex = 0;
+function startSlider() {
     const slides = document.querySelectorAll(".slide");
-    const nextBtn = document.querySelector(".right");
-    const prevBtn = document.querySelector(".left");
+    if (!slides.length) return;
 
-    let current = 0;
-    let autoSlide;
+    slides.forEach(slide => slide.classList.remove("active"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
 
-    function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove("active"));
-        slides[index].classList.add("active");
-    }
+    setTimeout(startSlider, 2000);
+}
 
-    function nextSlide() {
-        current++;
-        if (current >= slides.length) {
-            current = 0;
-        }
-        showSlide(current);
-    }
-
-    function prevSlide() {
-        current--;
-        if (current < 0) {
-            current = slides.length - 1;
-        }
-        showSlide(current);
-    }
-
-    // Arrow events
-    if (nextBtn) nextBtn.addEventListener("click", nextSlide);
-    if (prevBtn) prevBtn.addEventListener("click", prevSlide);
-
-    // Auto sliding
-    function startAutoSlide() {
-        autoSlide = setInterval(nextSlide, 3000);
-    }
-
-    startAutoSlide();
-
-});
+showSection('home');
 
 </script>
 
 </body>
 </html>
-
-
 
 
 
