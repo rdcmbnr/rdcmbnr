@@ -239,12 +239,11 @@ h2 {
     width: 100%;
     height: 100%;
     opacity: 0;
-	display: none
     transition: opacity 1s ease-in-out;
 }
 
 .slide.active {
-  	display: block
+    opacity: 1;
 }
 
 .slide img {
@@ -1856,7 +1855,7 @@ html, body {
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
     showSection('home');
-		
+		 showSlides();
 });
 function generateStaffCards() {
     const staff = [
@@ -2069,16 +2068,10 @@ function showAdmissionNotification() {
 </footer>
 
 <script>
-const myBtn = document.getElementById("mobile-menu");
 
-if (myBtn) {
-    myBtn.addEventListener("click", function() {
-  document.querySelector(".nav-list").classList.toggle("active");
-    });
-}
-/*document.getElementById("mobile-menu").addEventListener("click", function() {
+document.getElementById("mobile-menu").addEventListener("click", function() {
     document.querySelector(".nav-list").classList.toggle("active");
-});*/
+});
 
 function showSection(section) {
     const content = document.getElementById("content");
@@ -2260,8 +2253,6 @@ function showSection(section) {
 
      document.addEventListener("DOMContentLoaded", function () {
     showSection('home');
-	setTimeout(showNextSlide, 200);
-
   
 });
 
@@ -3967,35 +3958,24 @@ else {
 }
 
 /* AUTO SLIDER */
-document.addEventListener("DOMContentLoaded", function () {
+let slideIndex = 0;
+function startSlider() {
     const slides = document.querySelectorAll(".slide");
-    let currentIndex = 0;
+    if (!slides.length) return;
 
-    function showNextSlide() {
-        // Remove active from current slide
-        slides[currentIndex].classList.remove("active");
+    slides.forEach(slide => slide.classList.remove("active"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
 
-        // Move to next index
-        currentIndex = (currentIndex + 1) % slides.length;
+    setTimeout(startSlider, 2000);
+}
 
-        // Add active to new slide
-        slides[currentIndex].classList.add("active");
-    }
-
-    // Change slide every 3 seconds
-    setInterval(showNextSlide, 3000);
-});
+showSection('home');
 
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
 
 
 
