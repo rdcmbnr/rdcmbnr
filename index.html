@@ -77,17 +77,6 @@ nav {
     padding: 0;
 }
 
-nav a {
-    color: white;
-    padding: 14px 18px;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-}
-
-nav a:hover {
-    background: #0b5ed7;
-}
 
 .navbar {
     display: flex;
@@ -1812,6 +1801,20 @@ img {
 /* Prevent horizontal scroll */
 html, body {
     overflow-x: hidden;
+}
+#homeCarousel {
+    max-width: 900px;   /* reduce width */
+    margin: auto;       /* center it */
+}
+
+.carousel-item {
+    height: 400px;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 </style>
@@ -3928,6 +3931,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
