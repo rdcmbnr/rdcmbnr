@@ -1855,7 +1855,7 @@ html, body {
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
     showSection('home');
-		 showSlides();
+		// showSlides();
 });
 function generateStaffCards() {
     const staff = [
@@ -2069,9 +2069,9 @@ function showAdmissionNotification() {
 
 <script>
 
-document.getElementById("mobile-menu").addEventListener("click", function() {
+/*document.getElementById("mobile-menu").addEventListener("click", function() {
     document.querySelector(".nav-list").classList.toggle("active");
-});
+});*/
 
 function showSection(section) {
     const content = document.getElementById("content");
@@ -3965,6 +3965,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function showSlides() {
+	let slideIndex = 0;
     const slides = document.querySelectorAll('.slide');
 
     slides.forEach(slide => slide.classList.remove('active'));
@@ -3984,6 +3985,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
