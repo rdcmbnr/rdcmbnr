@@ -1958,6 +1958,7 @@ function showAdmissionNotification() {
         <li><a onclick="showSection('ICT Classes')">ICT Classes</a></li>
         <li><a onclick="showSection('Library')">Library</a></li>
         <li><a onclick="showSection('Mess')">Mess/Dining Hall</a></li>
+		<li><a onclick="showSection('Gym')">Gym</a></li>
     </ul>
 </li>
 
@@ -2531,7 +2532,7 @@ else if (section === "Library") {
 <div class="library-gallery">
 
     <div class="library-card">
-        <img src="images/lib.jpg" alt="Reading Hall">
+        <img src="images/lib1.jpg" alt="Reading Hall">
         
     </div>
 	 <div class="library-card">
@@ -2581,6 +2582,28 @@ else if (section === "Mess") {
 
 
     `;
+}
+	else if (section === "Gym") {
+    content.innerHTML = `
+    <h2 class="section-title">College Gymnasium</h2>
+
+        <p>
+        The college provides a well-equipped gymnasium facility to promote
+        physical fitness and healthy lifestyle among students.
+        </p>
+
+        <ul>
+            <li>Modern fitness equipment</li>
+            <li>Treadmill and cycling machines</li>
+            <li>Strength training equipment</li>
+            <li>Daily fitness training sessions</li>
+            <li>Separate timings for students</li>
+        </ul>
+
+        <img src="gym.jpg" style="width:100%;max-width:700px;border-radius:12px;margin-top:20px;">
+    </section>
+    `;
+
 }
 else if (section === "studentAchievements") {
     content.innerHTML = `
@@ -3960,6 +3983,7 @@ showSection('home');
 
 </body>
 </html>
+
 
 
 
